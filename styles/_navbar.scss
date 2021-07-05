@@ -1,0 +1,79 @@
+@import 'colors';
+@import 'media-queries';
+
+%align-center {
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    background-color: $light;
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    z-index: 10;
+    position: relative;
+    padding: 0.5rem calc((100vw - 1200px) / 2);
+
+    &__logo {
+        color: $dark;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 2rem;
+        margin-left: 24px;
+        @extend %align-center;
+    }
+
+    &__bars {
+        opacity: 0;
+        color: red;
+
+        @include tablet {
+            opacity: 1;
+            position: absolute;
+            color: $dark;
+            top: 22px;
+            right: 20px;
+            font-size: 2rem;
+        }
+    }
+
+    &__menu {
+        @extend %align-center;
+        list-style: none;
+        text-align: center;
+        margin-left: 24px;
+
+        @include tablet {
+            display: none;
+        }
+
+        &--links {
+            @extend %align-center;
+            color: $dark;
+            justify-content: center;
+            text-decoration: none;
+            padding: 0 1rem;
+
+            &:hover {
+                color: $lime;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+
+    #button {
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        background: $lime;
+        color: $light;
+        padding: 12px 24px;
+        margin-left: 16px;
+
+        &:hover {
+            background: $orangeRed;
+            transition: all 0.3s ease;
+        }
+    }
+}
